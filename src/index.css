@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* src/index.css or src/main.css */
+@import 'swiper/swiper-bundle.min.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=Unbounded:wght@200..900&display=swap');
+
+body {
+  background-color: #121313;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.btn {
+  background: linear-gradient(90deg, rgba(66, 230, 255, 1) 0%, rgba(139, 94, 247, 1) 100%);
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1); /* Subtle shine effect */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn:hover {
+  color: rgba(255, 255, 255, 0.9); /* Slightly dim text for contrast */
+  /* border: 2px solid rgba(139, 94, 247, 1);  */
+  /* box-shadow: 0 0 20px rgba(139, 94, 247, 0.6), 0 0 30px rgba(66, 230, 255, 0.4);  */
+}
+
+.btn:hover::before {
+  opacity: 1; /* Make the shine visible */
+  animation: shine 0.8s linear forwards; /* Shine animation */
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+.headline-text {
+  animation: scroll-text 40s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* blogcard */
+@keyframes spinGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.preview {
+  transition: transform 0.2s ease-out;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
